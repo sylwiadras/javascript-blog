@@ -55,7 +55,9 @@ function titleClickHandler(event){
 
   function generateTitleLinks (){
 
-    /* remove contents of titleList */
+    /* [DONE] remove contents of titleList */
+
+    const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
 
     /* for each article */
 
