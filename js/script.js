@@ -57,11 +57,14 @@ function titleClickHandler(event){
 
     /* [DONE] remove contents of titleList */
 
-    const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
+    const titleList = document.querySelector(optTitleListSelector);
+    titleList.innerHTML = '';
 
     /* [IN PROGRESS] loop for each article */
 
     const articles = document.querySelectorAll(optArticleSelector);
+
+    let html = '';
 
     for(let article of articles){
 
@@ -81,7 +84,12 @@ function titleClickHandler(event){
 
     /* insert link into titleList */
 
+      html = html + linkHTML;
+
     }
+
+    titleList.innerHTML = html;
+    console.log(html);
 
   }
 
