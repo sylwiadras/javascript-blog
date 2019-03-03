@@ -65,7 +65,9 @@ function titleClickHandler(event){
 
     for(let article of articles){
 
-    /* get the article id */
+    /* [IN PROGRESS] get the article id */
+
+    const articleId = optArticleSelector.getAttribute('id');
 
     /* find the title element */
 
