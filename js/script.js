@@ -54,7 +54,7 @@ function titleClickHandler(event){
     const titleList = document.querySelector(optTitleListSelector);
     titleList.innerHTML = '';
 
-    /* [IN PROGRESS] loop for each article */
+    /* [DONE] loop for each article */
 
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -76,7 +76,7 @@ function titleClickHandler(event){
 
     console.log(linkHTML);
 
-    /* insert link into titleList */
+    /* [DONE] insert link into titleList */
 
       html = html + linkHTML;
 
@@ -86,11 +86,11 @@ function titleClickHandler(event){
     console.log(html);
 
     const links = document.querySelectorAll('.titles a');
-  console.log(links);
+    console.log(links);
   
-  for(let link of links){
-    link.addEventListener('click', titleClickHandler);
-  }
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+    }
 
   }
 
