@@ -59,7 +59,11 @@ function titleClickHandler(event){
 
     const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
 
-    /* for each article */
+    /* [IN PROGRESS] loop for each article */
+
+    const articles = document.querySelectorAll(optArticleSelector);
+
+    for(let article of articles){
 
     /* get the article id */
 
@@ -70,6 +74,8 @@ function titleClickHandler(event){
     /* create HTML of the link */
 
     /* insert link into titleList */
+
+    }
 
   }
 
