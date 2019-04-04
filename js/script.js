@@ -132,7 +132,7 @@ function generateTags(){
 
       /* [DONE] generate HTML of the link */
 
-      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+      const linkHTML = '<li><a onclick="tagClickHandler(event)" href="#tag-' + tag + '">' + tag + '</a></li>'; 
       console.log(linkHTML);
 
       /* [DONE] add generated code to html variable */
@@ -163,7 +163,7 @@ function tagClickHandler(event){
 
   /* make new constant named "clickedElement" and give it the value of "this" */
 
-  const clickedElement = this;
+  const clickedElement = event.target; //event.target
 
   /* make a new constant "href" and read the attribute "href" of the clicked element */
 

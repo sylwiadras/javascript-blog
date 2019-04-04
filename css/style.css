@@ -30,6 +30,8 @@ body { background: #fff; font-family: "Source Sans Pro", sans-serif; color: #444
 
 .list-horizontal li { display: inline-block; }
 
+.list-horizontal a { margin-right: 3px; }
+
 /* Authors */
 .authors li { margin-bottom: 24px; }
 
