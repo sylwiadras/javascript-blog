@@ -131,8 +131,6 @@ function generateTags(){
 
     tagsList.innerHTML = html;
 
-    const tags = article.querySelectorAll('.list .tags a');
-
   /* [DONE] END LOOP: for every article: */
   }
 }
