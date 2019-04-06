@@ -234,7 +234,7 @@ function generateAuthors(){
 
     /*generate HTML of the link */
 
-    const linkHTML = '<a onclick="tagClickHandler(event)" href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
+    const linkHTML = '<a onclick="authorClickHandler(event)" href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
 
     /*add generated code to html variable */
 
@@ -303,3 +303,20 @@ function authorClickHandler(event) {
    generateTitleLinks('[data-author="' + author + '"]');
    
  }
+
+function addClickListenersToAuthors(){
+  /* find all links to authors */
+
+    const authorLinks = document.querySelectorAll('a');
+
+  /* START LOOP: for each link */
+
+    for (let authorLink of authorLinks) {
+
+      /* add authorClickHandler as event listener for that link */
+
+      authorLink.addEventListener('click', authorClickHandler);
+
+  /* END LOOP: for each link */
+    }
+}
