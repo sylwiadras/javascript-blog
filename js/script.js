@@ -89,8 +89,8 @@ const optArticleSelector = '.post',
 generateTitleLinks();
 
 function generateTags(){
-  /* [NEW] create a new variable allTags with an empty array */
-  let allTags = [];
+  /* [NEW] create a new variable allTags with an empty object */
+  let allTags = {};
 
   /* [DONE] find all articles */
 
@@ -130,12 +130,11 @@ function generateTags(){
 
       /* [NEW] check if this link is NOT already in allTags */
       
-      if(allTags.indexOf(linkHTML) == -1){
-        
-        /* [NEW] add generated code to allTags array */
-        
-        allTags.push(linkHTML);
-      
+      if(!allTags.hasOwnProperty(tag)){
+        /* [NEW] add tag to allTags object */
+        allTags[tag] = 1;
+      } else {
+        allTags[tag]++;
       }
 
     /* [DONE] END LOOP: for each tag */
@@ -148,16 +147,34 @@ function generateTags(){
     const tags = article.querySelectorAll('.list .tags a');
 
   /* [DONE] END LOOP: for every article: */
+  }
 
   /* [NEW] find list of tags in right column */
 
   const tagList = document.querySelector('.tags');
 
-  /* [NEW] add html from allTags to tagList */
+  /* [NEW] create for all links HTML code */
+
+  let allTagsHTML = '';
   
-  tagList.innerHTML = allTags.join(' ');
+  /* [NEW] START LOOP: for each tag in allTags: */
+
+  for(let tag in allTags){
+    
+    /* [NEW] generate code of a link and add it to allTagsHTML */
+
+    allTagsHTML += '<a href=' + tag + '>' + tag + '</a>' + ' (' + allTags[tag] + ') ';
+    console.log(allTagsHTML);
+
+    /*[NEW] END LOOP: for each tag in allTags: */
   }
-}
+
+  /*[NEW] add html from allTagsHTML to tagsList */
+
+  tagList.innerHTML = allTagsHTML;
+
+  }
+
 
 generateTags();
 
