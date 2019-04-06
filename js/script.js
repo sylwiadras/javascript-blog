@@ -88,6 +88,19 @@ const optArticleSelector = '.post',
 
 generateTitleLinks();
 
+function calculateTagsParams(tags){
+  const params = {
+    max: 0,
+    min: 999999,
+  };
+for(let tag in tags){
+  console.log(tag + ' is used ' + tags[tag] + ' times');
+  params.max = Math.max(tags[tag], params.max);
+  params.min = Math.min(tags[tag], params.min);
+}
+  return params;
+}
+
 function generateTags(){
   /* [NEW] create a new variable allTags with an empty object */
   let allTags = {};
@@ -144,14 +157,15 @@ function generateTags(){
 
     tagsList.innerHTML = html;
 
-    const tags = article.querySelectorAll('.list .tags a');
-
   /* [DONE] END LOOP: for every article: */
   }
 
   /* [NEW] find list of tags in right column */
 
   const tagList = document.querySelector('.tags');
+
+  const tagsParams = calculateTagsParams(allTags);
+  console.log('tagsParams: ', tagsParams);
 
   /* [NEW] create for all links HTML code */
 
@@ -164,7 +178,6 @@ function generateTags(){
     /* [NEW] generate code of a link and add it to allTagsHTML */
 
     allTagsHTML += '<a href=' + tag + '>' + tag + '</a>' + ' (' + allTags[tag] + ') ';
-    console.log(allTagsHTML);
 
     /*[NEW] END LOOP: for each tag in allTags: */
   }
